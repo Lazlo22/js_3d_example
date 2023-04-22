@@ -1,6 +1,11 @@
+// components
+import Home from './pages/Home';
+
 function App() {
   return (
-    <div></div>
+    <main className="app transition-all ease-in">
+      <Home />
+    </main>
   );
 }
 
