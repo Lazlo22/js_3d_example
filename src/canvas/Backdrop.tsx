@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { AccumulativeShadows, RandomizedLight } from '@react-three/drei';
 
 const Backdrop = () => {

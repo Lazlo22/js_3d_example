@@ -2,18 +2,29 @@ import { easing } from 'maath';
 import { useSnapshot } from 'valtio';
 import { useFrame } from '@react-three/fiber';
 import { Decal, useGLTF, useTexture } from '@react-three/drei';
+import { GLTF } from 'three-stdlib';
 // common
 import state from '../store';
+
+type GLTFResult = GLTF & {
+  nodes: {
+    T_Shirt_male: any;
+  };
+  materials: {
+    lambert1: any;
+  }
+};
+
 
 const Shirt = () => {
   const snap = useSnapshot(state);
   
-  const { nodes, materials } = useGLTF('/shirt_baked.glb');
+  const { nodes, materials } = useGLTF('/shirt_baked.glb') as GLTFResult;
 
   const logoTexture = useTexture(snap.logoDecal);
   const fullTexture = useTexture(snap.fullDecal);
 
-  useFrame((state, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta));
+  useFrame((_, delta) => easing.dampC(materials.lambert1.color, snap.color, 0.25, delta));
 
   const stateString = JSON.stringify(snap);
 

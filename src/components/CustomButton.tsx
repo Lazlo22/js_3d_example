@@ -9,7 +9,7 @@ type CustomButtonProps = {
     type: CustomButtonType;
     title: string;
     customStyles: string;
-    handleClick: () => void;
+    handleClick?: () => void;
 }
 
 const CustomButton = ({ type, title, customStyles, handleClick }: CustomButtonProps) => {
