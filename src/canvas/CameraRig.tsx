@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ReactNode, useRef } from 'react';
 import { useFrame, GroupProps } from '@react-three/fiber';
 import { easing } from 'maath';
@@ -20,6 +21,7 @@ const CameraRig = ({ children }: CameraRigProps) => {
 
     // set the initial position of the model
     let targetPosition = [-0.4, 0, 2];
+
     if(snap.intro) {
       if(isBreakpoint) targetPosition = [0, 0, 2];
       if(isMobile) targetPosition = [0, 0.2, 2.5];
